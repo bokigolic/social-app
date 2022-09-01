@@ -16,6 +16,14 @@ const rootReducer = (state = initialState, action) => {
         myUserData: payload
       };
 
+    case 'LOGOUT':
+      return {
+        ...state,
+        myUserData: null
+      };
+
+
+
     default:
       return state;
   }

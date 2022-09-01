@@ -1,43 +1,35 @@
 import { useEffect } from "react";
-import axios from 'axios';
+import { useDispatch, useSelector } from "react-redux";
 import "../scss/style.scss";
 import LoginForm from "./LoginForm";
 
 
 const App = () => {
-  console.log('testing backend...');
+  const dispatch = useDispatch();
+  const myUserData = useSelector(state => state.myUserData);
 
-  useEffect(() => {
-    /*
-    axios.get('http://localhost:3033/posts')
-      .then((response) => {
-        console.log('response GET', response)
-      })
-
-    const data = {
-      title: 'treci'
-    };
-    axios.post('http://localhost:3033/posts', data)
-      .then((response) => {
-        console.log('response POST', response)
-      })
-
-    const data2 = {
-      username: 'boki',
-      password: 'boki'
-    };
-    axios.post('http://localhost:3033/users', data2)
-      .then((response) => {
-        console.log('response POST 2', response)
-      })
-      */
-
-  }, []);
+  const handleLogout = () => {
+    dispatch({
+      type: 'LOGOUT'
+    })
+  }
 
   return (
-    <div className="App">
+    <div className="wrapper">
+      <header>
+        {
+          myUserData ? (
+            <div>
+              {myUserData.username} <button onClick={handleLogout}>Log Out</button>
+            </div>
+          ) : (
+            <LoginForm />
+          )
+        }
+
+
+      </header>
       App
-      <LoginForm />
     </div>
   );
 }
