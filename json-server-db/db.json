@@ -7,6 +7,34 @@
     {
       "id": 2,
       "title": "drugi post"
+    },
+    {
+      "title": "treci",
+      "id": 3
+    },
+    {
+      "title": "treci",
+      "id": 4
+    },
+    {
+      "title": "treci",
+      "id": 5
+    },
+    {
+      "title": "treci",
+      "id": 6
+    }
+  ],
+  "users": [
+    {
+      "username": "boki",
+      "password": "boki",
+      "id": 1
+    },
+    {
+      "username": "boki",
+      "password": "boki",
+      "id": 2
     }
   ]
 }
