@@ -2,6 +2,7 @@ import { DRAWER_CLOSE, DRAWER_OPEN, ROUTE_SET, ROUTE_WITH_FRAGMENT_SET } from ".
 
 const initialState = {
   myUserData: null,
+  posts: [],
   routeSimple: 'HOME',
   something: 'bla bla'
 };
@@ -20,6 +21,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         myUserData: null
+      };
+
+    case 'POSTS_FETCHED':
+      return{
+        ...state,
+        posts: payload
       };
 
 

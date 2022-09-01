@@ -16,11 +16,22 @@ ajax.login = async (sumbitData) => {
     const users = response.data;
     const username = sumbitData.username;
     const password = sumbitData.password;
-    users.forEach((item)=>{
+    users.forEach((item) => {
       if (item.username === username && item.password === password) {
         myUserData = item;
       }
     });
   }
   return myUserData;
+};
+
+ajax.getAllPosts = async () => {
+  const url = apiUrlPrefix + '/posts';
+  const response = await axios.get(url);
+  console.log('response from /posts', response);
+  let posts = [];
+  if (response && response.data && Array.isArray(response.data)) {
+    posts = response.data;
+  }
+  return posts;
 };

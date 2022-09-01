@@ -2,35 +2,33 @@
   "posts": [
     {
       "id": 1,
-      "title": "prvi post"
+      "username": "Aca",
+      "text": "prvi post",
+      "timestamt": 1662067768662
     },
     {
       "id": 2,
-      "title": "drugi post"
+      "username": "Joca",
+      "text": "drugi post",
+      "timestamt": 1662067768662
     },
     {
-      "title": "treci",
-      "id": 3
+      "id": 3,
+      "username": "Ceca",
+      "text": "treci post",
+      "timestamt": 1662067768662
     },
     {
-      "title": "treci",
-      "id": 4
+      "id": 4,
+      "username": "Maca",
+      "text": "cetvrti post",
+      "timestamt": 1662067768662
     },
     {
-      "title": "treci",
-      "id": 5
-    },
-    {
-      "title": "treci",
-      "id": 6
-    },
-    {
-      "title": "treci",
-      "id": 7
-    },
-    {
-      "title": "treci",
-      "id": 8
+      "id": 5,
+      "username": "Jaca",
+      "text": "peti post",
+      "timestamt": 1662067768662
     }
   ],
   "users": [

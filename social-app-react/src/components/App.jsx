@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../scss/style.scss";
 import LoginForm from "./LoginForm";
+import PostList from "./PostList";
 
 
 const App = () => {
@@ -29,7 +30,9 @@ const App = () => {
 
 
       </header>
-      App
+      
+      <PostList />
+
     </div>
   );
 }
