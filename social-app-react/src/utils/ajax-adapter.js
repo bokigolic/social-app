@@ -35,3 +35,13 @@ ajax.getAllPosts = async () => {
   }
   return posts;
 };
+
+ajax.createPost = async (sumbitData) => {
+  const url = apiUrlPrefix + '/posts';
+  const data = {
+    ...sumbitData,
+    timestamp: Date.now() // vreme inace treba da se doda na backendu ali sad laziramo
+  };
+  const response = await axios.post(url, data);
+  return true; // iako uspe i ako ne uspe
+};

@@ -4,31 +4,49 @@
       "id": 1,
       "username": "Aca",
       "text": "prvi post",
-      "timestamt": 1662067768662
+      "timestamp": 1662067768662
     },
     {
       "id": 2,
       "username": "Joca",
       "text": "drugi post",
-      "timestamt": 1662067768662
+      "timestamp": 1662067768662
     },
     {
       "id": 3,
       "username": "Ceca",
       "text": "treci post",
-      "timestamt": 1662067768662
+      "timestamp": 1662067768662
     },
     {
       "id": 4,
       "username": "Maca",
       "text": "cetvrti post",
-      "timestamt": 1662067768662
+      "timestamp": 1662067768662
     },
     {
       "id": 5,
       "username": "Jaca",
       "text": "peti post",
-      "timestamt": 1662067768662
+      "timestamp": 1662067768662
+    },
+    {
+      "text": "dfdsf",
+      "username": "boki",
+      "timestamp": 1662070721455,
+      "id": 6
+    },
+    {
+      "text": "novi post",
+      "username": "boki",
+      "timestamp": 1662071159873,
+      "id": 7
+    },
+    {
+      "text": "n2222222",
+      "username": "boki",
+      "timestamp": 1662071171386,
+      "id": 8
     }
   ],
   "users": [
