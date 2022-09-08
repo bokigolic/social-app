@@ -18,7 +18,7 @@ const PostSingle = (props) => {
     axios.get(url)
       .then((response) => {
         // ovo ce biti pozvano kada se obavio axios.get()
-        console.log('postSingle dobio response za user', response);
+        // console.log('postSingle dobio response za user', response);
         if (response && response.data && response.data.username) {
           // dobili smo podtake o korisniku
           // sad ih upisujemo u state ove komponente

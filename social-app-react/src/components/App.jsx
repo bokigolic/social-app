@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../scss/style.scss";
 import Avatar from "./Avatar";
+import Bar from "./Bar";
+import BtnCircle from "./BtnCircle";
 import LoginForm from "./LoginForm";
 import NewPostForm from "./NewPostForm";
 import PostList from "./PostList";

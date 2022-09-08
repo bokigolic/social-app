@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { ajax } from "../utils/ajax-adapter";
 import Avatar from "./Avatar";
+import Bar from "./Bar";
+import BtnCircle from "./BtnCircle";
 
 const NewPostForm = (props) => {
   const myUserData = useSelector(state => state.myUserData);
@@ -91,8 +93,21 @@ const NewPostForm = (props) => {
             placeholder={"What's on your mind, " + myUserData.username + "?"}
           />
         </div>
-        <button type="button" onClick={handlePublish}><i className="fa fa-paper-plane" aria-hidden="true"></i> Publish</button>
-        <button type="button" onClick={toggleShowImageForm}><i className="fa fa-camera" aria-hidden="true"></i> Add Image</button>
+        <Bar
+          end={
+            <div className="btn-group">
+              <BtnCircle
+                tip="Add Picture" fa="fa fa-camera"
+                handleClick={toggleShowImageForm}
+              />
+              <BtnCircle
+                tip="Publish"
+                fa="fa fa-paper-plane"
+                handleClick={handlePublish}
+              />
+            </div>
+          }
+        />
       </form>
 
 
