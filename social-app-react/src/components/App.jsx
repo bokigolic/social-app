@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../scss/style.scss";
+import Avatar from "./Avatar";
 import LoginForm from "./LoginForm";
 import NewPostForm from "./NewPostForm";
 import PostList from "./PostList";
@@ -20,12 +21,17 @@ const App = () => {
     <div className="wrapper">
       <header>
         <div className="inner">
-          <div className="logo">Logo</div>
+          <div className="logo">Bokibook</div>
+          <div className="flex-1"></div>
           {
             myUserData ? (
-              <div>
-                {myUserData.username} <button onClick={handleLogout}><i className="fa fa-sign-out" aria-hidden="true"></i> Log Out</button>
-              </div>
+              <>
+                <Avatar src={myUserData.avatar_src} />
+                <div><b>{myUserData.username}</b></div>
+                <div>
+                  <button onClick={handleLogout}><i className="fa fa-sign-out" aria-hidden="true"></i> Log Out</button>
+                </div>
+              </>
             ) : (
               <LoginForm />
             )

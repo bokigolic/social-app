@@ -19,8 +19,13 @@ p {
   margin: 0.3em 0px;
 }
 
+
+.flex-1 {
+  flex: 1;
+}
+
 .inner {
-  max-width: 600px;
+  max-width: 560px;
   margin: 0px auto;
   padding: 1rem;
 }
@@ -35,6 +40,14 @@ p {
       flex-wrap: nowrap;
       justify-content: space-between;
       align-items: center;
+
+      div {
+        margin-right: 0.5rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
 
       .login-form {
         input {
@@ -151,7 +164,7 @@ p {
     max-height: 100px;
     margin: 0.5rem 0rem;
     overflow: hidden;
-  
+
     img {
       width: 100%;
       height: 100%;
