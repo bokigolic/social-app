@@ -12,6 +12,16 @@ const NewPostForm = (props) => {
   }
   const [formState, setFormState] = useState(preset);
   const [imageBlob, setImageBlob] = useState(""); // blob je slika bez naziva cisti podaci od slike
+  const [showImageForm, setShowImageForm] = useState(false);
+
+  const toggleShowImageForm = () => {
+    if (showImageForm) {
+      setShowImageForm(false)
+    } else {
+      setShowImageForm(true)
+    }
+  }
+
 
 
   const handleChange = (e) => {
@@ -82,24 +92,34 @@ const NewPostForm = (props) => {
           />
         </div>
         <button type="button" onClick={handlePublish}><i className="fa fa-paper-plane" aria-hidden="true"></i> Publish</button>
-        <button type="button">Add Image</button>
+        <button type="button" onClick={toggleShowImageForm}><i className="fa fa-camera" aria-hidden="true"></i> Add Image</button>
       </form>
 
-      <form>
-        <h5>Add Image form</h5>
-        <div>image preview:</div>
-        <div className="image-preview">
-          <img src={imageBlob} />
-        </div>
-        <div>
-          <input
-            type="file"
-            accept="image/jpeg, image/png"
-            name="file"
-            onChange={onSelectFile}
-          />
-        </div>
-      </form>
+
+      {
+        showImageForm && (
+          <div className="image-upload-form">
+            <form>
+              <h5>Choose image from your device</h5>
+              <div className="image-preview">
+                <img src={imageBlob} />
+              </div>
+              <div>
+                <input
+                  type="file"
+                  accept="image/jpeg, image/png"
+                  name="file"
+                  onChange={onSelectFile}
+                />
+              </div>
+            </form>
+          </div>
+        )
+      }
+
+
+
+
     </div>
   );
 };

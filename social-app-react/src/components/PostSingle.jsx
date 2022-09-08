@@ -31,22 +31,27 @@ const PostSingle = (props) => {
 
   return (
     <div className="post-single">
-      <div className="avatar-group">
-        <Avatar src={user.avatar_src} />
-        <div className="next-to-avatar">
-          <b>{user.username}</b><br />
-          <div className="date-time">{timestampToDateDIsplay(item.timestamp)}</div>
-        </div>
-      </div>
-      <p>{item.text}</p>
-      {
-        item.image_src && item.image_src !== "" && (
-          <div className="image-preview">
-            <img src={item.image_src} />
+      <header>
+
+        <div className="avatar-group">
+          <Avatar src={user.avatar_src} />
+          <div className="next-to-avatar">
+            <b>{user.username}</b><br />
+            <div className="date-time">{timestampToDateDIsplay(item.timestamp)}</div>
           </div>
-        )
-      }
-      
+        </div>
+        <p>{item.text}</p>
+      </header>
+      <div className="post-body">
+        {
+          item.image_src && item.image_src !== "" && (
+            <img src={item.image_src} />
+          )
+        }
+      </div>
+      <footer>
+        post footer
+      </footer>
     </div>
   );
 };
