@@ -41,30 +41,28 @@ const LoginForm = () => {
 
 
   return (
-    <div>
-      <form>
-        <h3>Login</h3>
-        <div>
-          <label>Username</label>
-          <input
-            type="text"
-            name="username"
-            value={formState.username}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={formState.password}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="button" onClick={handleLogin} >Log in</button>
-      </form>
-    </div>
+    <form>
+      <div className="login-form">
+
+        <input
+          type="text"
+          name="username"
+          value={formState.username}
+          onChange={handleChange}
+          placeholder="Username"
+        />
+
+        <input
+          type="password"
+          name="password"
+          value={formState.password}
+          onChange={handleChange}
+          placeholder="Password"
+        />
+
+        <button type="button" onClick={handleLogin} ><i className="fa fa-sign-in" aria-hidden="true"></i> Log in</button>
+      </div>
+    </form>
   );
 };
 export default LoginForm;

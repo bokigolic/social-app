@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ajax } from "../utils/ajax-adapter";
+import { timestampToDateDIsplay } from "../utils/date-utils";
 import NewPostForm from "./NewPostForm";
+import PostSingle from "./PostSingle";
 
 
 const PostList = () => {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts);
+  const myUserData = useSelector(state => state.myUserData);
 
-  const refresh = ()=> {
+  const refresh = () => {
     ajax.getAllPosts()
       .then((response) => {
         dispatch({
@@ -28,17 +31,18 @@ const PostList = () => {
     <div>
       <h1>Posts</h1>
 
-      <NewPostForm refresh={refresh} />
+      {
+        myUserData !== null && (
+          <NewPostForm refresh={refresh} />
+        )
+      }
+
 
       <div className="post-list">
         {
           posts.map((item) => {
             return (
-              <div>
-                <b>{item.username}</b><br />
-                <span>{item.timestamp}</span>
-                <p>{item.text}</p>
-              </div>
+              <PostSingle key={item.id} item={item} />
             )
           })
         }

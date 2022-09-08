@@ -19,20 +19,24 @@ const App = () => {
   return (
     <div className="wrapper">
       <header>
-        {
-          myUserData ? (
-            <div>
-              {myUserData.username} <button onClick={handleLogout}>Log Out</button>
-            </div>
-          ) : (
-            <LoginForm />
-          )
-        }
-
-
+        <div className="inner">
+          <div className="logo">Logo</div>
+          {
+            myUserData ? (
+              <div>
+                {myUserData.username} <button onClick={handleLogout}><i className="fa fa-sign-out" aria-hidden="true"></i> Log Out</button>
+              </div>
+            ) : (
+              <LoginForm />
+            )
+          }
+        </div>
       </header>
- 
-      <PostList />
+
+      <div className="inner">
+        <PostList />
+      </div>
+
 
     </div>
   );
