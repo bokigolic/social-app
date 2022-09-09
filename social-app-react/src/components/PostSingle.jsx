@@ -3,11 +3,15 @@ import { useState } from "react";
 import { timestampToDateDIsplay } from "../utils/date-utils";
 import Avatar from "./Avatar";
 import axios from "axios";
+import Bar from "./Bar";
+import BtnCircle from "./BtnCircle";
+import { ajax } from "../utils/ajax-adapter";
 
 const PostSingle = (props) => {
   const item = props.item;
 
   const [user, setUser] = useState({
+    "id": null,
     "username": "",
     "password": "",
     "avatar_src": "/static/img/avatar-placeholder.png"
@@ -28,6 +32,27 @@ const PostSingle = (props) => {
       })
 
   }, []);
+
+  const handleLike = () => {
+
+    if (user.id >= 0) {
+      // if logged in
+      console.log("Like", item.id, user.id)
+      const submitData = {
+        post_id: item.id,
+        user_id: user.id,
+        like: true
+      };
+      ajax.likePost(submitData)
+        .then((response)=>{
+          console.log("Like uspesno dodat na backend")
+        })
+
+    } else {
+      // not logged in
+      window.alert('You must be loged in to be able to like');
+    }
+  };
 
   return (
     <div className="post-single">
@@ -50,8 +75,25 @@ const PostSingle = (props) => {
         }
       </div>
       <footer>
-        post footer
+
+
+        <Bar
+          start={
+            <div className="btn-group">
+              <BtnCircle
+                fa="fa fa-thumbs-up" tip="Like"
+                handleClick={handleLike}
+              />
+              <div><b>99</b></div>
+              <BtnCircle fa="fa fa-thumbs-down" tip="Dislike" />
+            </div>
+          }
+        />
+
+
+
       </footer>
+
     </div>
   );
 };

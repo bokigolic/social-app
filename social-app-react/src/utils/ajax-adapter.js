@@ -45,3 +45,12 @@ ajax.createPost = async (sumbitData) => {
   const response = await axios.post(url, data);
   return true; // iako uspe i ako ne uspe
 };
+
+ajax.likePost = async (submitData) => {
+  const url = apiUrlPrefix + '/likes';
+  const data = {
+    ...submitData
+  };
+  const response = await axios.post(url, data);
+  return true;
+};
