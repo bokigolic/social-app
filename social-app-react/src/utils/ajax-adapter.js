@@ -54,3 +54,12 @@ ajax.likePost = async (submitData) => {
   const response = await axios.post(url, data);
   return true;
 };
+
+// NOVO
+// http://localhost:3033/likes?user_id=1&post_id=23
+
+ajax.checkUserLikePost = async (user_id, post_id) => {
+  const url = apiUrlPrefix + '/likes?user_id=' + user_id + '&post_id=' + post_id;
+  const response = await axios.get(url);
+  return response;
+};

@@ -195,7 +195,7 @@
       "like": true
     },
     {
-      "post_id": 24,
+      "post_id": 23,
       "user_id": 1,
       "like": true,
       "id": 2
@@ -205,60 +205,6 @@
       "user_id": 1,
       "like": true,
       "id": 3
-    },
-    {
-      "post_id": 23,
-      "user_id": 1,
-      "like": true,
-      "id": 4
-    },
-    {
-      "post_id": 23,
-      "user_id": 1,
-      "like": true,
-      "id": 5
-    },
-    {
-      "post_id": 22,
-      "user_id": 1,
-      "like": true,
-      "id": 6
-    },
-    {
-      "post_id": 22,
-      "user_id": 1,
-      "like": true,
-      "id": 7
-    },
-    {
-      "post_id": 22,
-      "user_id": 1,
-      "like": true,
-      "id": 8
-    },
-    {
-      "post_id": 23,
-      "user_id": 1,
-      "like": true,
-      "id": 9
-    },
-    {
-      "post_id": 24,
-      "user_id": 1,
-      "like": true,
-      "id": 10
-    },
-    {
-      "post_id": 24,
-      "user_id": 1,
-      "like": true,
-      "id": 11
-    },
-    {
-      "post_id": 24,
-      "user_id": 1,
-      "like": true,
-      "id": 12
     }
   ]
 }

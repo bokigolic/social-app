@@ -6,9 +6,12 @@ import axios from "axios";
 import Bar from "./Bar";
 import BtnCircle from "./BtnCircle";
 import { ajax } from "../utils/ajax-adapter";
+import { useSelector } from "react-redux";
 
 const PostSingle = (props) => {
   const item = props.item;
+  const myUserData = useSelector(state => state.myUserData);
+
 
   const [user, setUser] = useState({
     "id": null,
@@ -28,23 +31,22 @@ const PostSingle = (props) => {
           // sad ih upisujemo u state ove komponente
           setUser(response.data);
         }
-
       })
 
   }, []);
 
   const handleLike = () => {
 
-    if (user.id >= 0) {
+    if (myUserData) {
       // if logged in
-      console.log("Like", item.id, user.id)
+      console.log("Like", item.id, myUserData.id)
       const submitData = {
         post_id: item.id,
-        user_id: user.id,
+        user_id: myUserData.id,
         like: true
       };
       ajax.likePost(submitData)
-        .then((response)=>{
+        .then((response) => {
           console.log("Like uspesno dodat na backend")
         })
 
@@ -81,6 +83,7 @@ const PostSingle = (props) => {
           start={
             <div className="btn-group">
               <BtnCircle
+                disabled
                 fa="fa fa-thumbs-up" tip="Like"
                 handleClick={handleLike}
               />
