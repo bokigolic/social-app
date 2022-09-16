@@ -116,16 +116,20 @@ const NewPostForm = (props) => {
           <div className="image-upload-form">
             <form>
               <h5>Choose image from your device</h5>
-              <div className="image-preview">
-                <img src={imageBlob} />
-              </div>
-              <div>
-                <input
-                  type="file"
-                  accept="image/jpeg, image/png"
-                  name="file"
-                  onChange={onSelectFile}
-                />
+              <div className="image-preview-gallery">
+                <div className="image-preview">
+                  <img src={imageBlob} />
+                </div>
+                <label className="file-input-custom-design">
+                  <span className="icon"><i className="fa fa-plus" aria-hidden="true"></i></span>
+                  <span>Add image</span>
+                  <input
+                    type="file"
+                    accept="image/jpeg, image/png"
+                    name="file"
+                    onChange={onSelectFile}
+                  />
+                </label>
               </div>
             </form>
           </div>
