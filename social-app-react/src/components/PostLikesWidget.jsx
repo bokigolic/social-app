@@ -10,49 +10,78 @@ const PostLikesWidget = (props) => {
 
   const [allreadyLiked, setAllreadyLiked] = useState(false);
   const [allreadyLikedId, setAllreadyLikedId] = useState(null);
+
   const [likeDisabled, setLikeDisabled] = useState(true);
   const [dislikeDisabled, setDislikeDisabled] = useState(true);
+
+  const [likes, setLikes] = useState([]);
+
+  let likeCount = 0;
+  if (likes.length > 0) {
+    // prebrojavanje lajkova
+    // TODO
+    likes.forEach((likeItem) => {
+      if (likeItem.like === true) {
+        // Brojimo like
+        likeCount++;
+      } else {
+        // Brojimo dislike
+        likeCount--;
+      }
+    })
+  };
 
 
   const refresh = () => {
     const user_id = myUserData.id;
     ajax.checkUserLikePost(user_id, post_id)
       .then((response) => {
-        console.log(response)
-        if (response && Array.isArray(response.data)) {
-          // reposne u ispravnom formatu
-          if (response.data.length > 0) {
-            // znaci da smo vec lajkovali ili dilajkovali
-            // znaci samo jedna like ili dislajk treba iskljuciti
-            const likeItem = response.data[0];
-            setAllreadyLiked(true);
-            setAllreadyLikedId(likeItem.id);
-            if (likeItem.like === true) {
-              // LIKE
-              setLikeDisabled(true);
-              setDislikeDisabled(false);
-            } else {
-              // DISLIKE
-              setLikeDisabled(false);
-              setDislikeDisabled(true);
-            }
-          } else {
-            // nismo jos ni lajkovali ni dislajkovali
-            setAllreadyLiked(false);
-            setAllreadyLikedId(null);
-            // znaci obe treba da budu ukljucene
-            setLikeDisabled(false);
+        // console.log(response);
+        if (response.length > 0) {
+          // znaci da smo vec lajkovali ili dilajkovali
+          // znaci samo jedna like ili dislajk treba iskljuciti
+          const likeItem = response[0];
+          setAllreadyLiked(true);
+          setAllreadyLikedId(likeItem.id);
+          if (likeItem.like === true) {
+            // LIKE
+            setLikeDisabled(true);
             setDislikeDisabled(false);
+          } else {
+            // DISLIKE
+            setLikeDisabled(false);
+            setDislikeDisabled(true);
           }
+        } else {
+          // nismo jos ni lajkovali ni dislajkovali
+          setAllreadyLiked(false);
+          setAllreadyLikedId(null);
+          // znaci obe treba da budu ukljucene
+          setLikeDisabled(false);
+          setDislikeDisabled(false);
         }
       })
 
   };
 
+  const refreshLikes = () => {
+    ajax.getAllPostLikes(post_id)
+      .then((response) => {
+        setLikes(response);
+      })
+
+  };
+
+  useEffect(() => {
+    // broj lajkova nam treba bez obzira da li smo ulogovani ili ne
+    refreshLikes();
+  }, []);
+
   useEffect(() => {
     if (myUserData) {
       // if logged in
       refresh();
+      refreshLikes();
     }
   }, [myUserData]);
 
@@ -73,6 +102,7 @@ const PostLikesWidget = (props) => {
           .then((response) => {
             console.log("Like uspesno dodat na backend");
             refresh();
+            refreshLikes();
           })
 
       } else {
@@ -81,6 +111,7 @@ const PostLikesWidget = (props) => {
           .then((response) => {
             console.log("Like uspesno dodat na backend");
             refresh();
+            refreshLikes();
           })
       }
 
@@ -98,7 +129,7 @@ const PostLikesWidget = (props) => {
         fa="fa fa-thumbs-up" tip="Like"
         handleClick={(e) => { handleLike(true) }}
       />
-      <div><b>99</b></div>
+      <div><b>{likeCount}</b></div>
       <BtnCircle
         disabled={dislikeDisabled}
         fa="fa fa-thumbs-down"

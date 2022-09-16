@@ -72,5 +72,20 @@ ajax.updateLikePost = async (submitData, id) => {
 ajax.checkUserLikePost = async (user_id, post_id) => {
   const url = apiUrlPrefix + '/likes?user_id=' + user_id + '&post_id=' + post_id;
   const response = await axios.get(url);
-  return response;
+  let likes = [];
+  if (response && response.data && Array.isArray(response.data)) {
+    likes = response.data;
+  }
+  return likes;
+};
+
+ajax.getAllPostLikes = async (post_id) => {
+  const url = apiUrlPrefix + '/likes?post_id=' + post_id;
+  const response = await axios.get(url);
+  // console.log('response from getAllPostLikes', response);
+  let likes = [];
+  if (response && response.data && Array.isArray(response.data)) {
+    likes = response.data;
+  }
+  return likes;
 };
