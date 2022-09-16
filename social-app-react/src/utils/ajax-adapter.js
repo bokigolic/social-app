@@ -47,11 +47,22 @@ ajax.createPost = async (sumbitData) => {
 };
 
 ajax.likePost = async (submitData) => {
+  // CREATE LIKE
   const url = apiUrlPrefix + '/likes';
   const data = {
     ...submitData
   };
   const response = await axios.post(url, data);
+  return true;
+};
+
+ajax.updateLikePost = async (submitData, id) => {
+  // UPDATE LIKE
+  const url = apiUrlPrefix + '/likes/' + id;
+  const data = {
+    ...submitData
+  };
+  const response = await axios.patch(url, data);
   return true;
 };
 
