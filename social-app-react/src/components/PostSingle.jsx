@@ -7,6 +7,7 @@ import Bar from "./Bar";
 import BtnCircle from "./BtnCircle";
 import { ajax } from "../utils/ajax-adapter";
 import { useSelector } from "react-redux";
+import PostLikesWidget from "./PostLikesWidget";
 
 const PostSingle = (props) => {
   const item = props.item;
@@ -35,26 +36,6 @@ const PostSingle = (props) => {
 
   }, []);
 
-  const handleLike = () => {
-
-    if (myUserData) {
-      // if logged in
-      console.log("Like", item.id, myUserData.id)
-      const submitData = {
-        post_id: item.id,
-        user_id: myUserData.id,
-        like: true
-      };
-      ajax.likePost(submitData)
-        .then((response) => {
-          console.log("Like uspesno dodat na backend")
-        })
-
-    } else {
-      // not logged in
-      window.alert('You must be loged in to be able to like');
-    }
-  };
 
   return (
     <div className="post-single">
@@ -81,15 +62,7 @@ const PostSingle = (props) => {
 
         <Bar
           start={
-            <div className="btn-group">
-              <BtnCircle
-                disabled
-                fa="fa fa-thumbs-up" tip="Like"
-                handleClick={handleLike}
-              />
-              <div><b>99</b></div>
-              <BtnCircle fa="fa fa-thumbs-down" tip="Dislike" />
-            </div>
+            <PostLikesWidget post_id={item.id} />
           }
         />
 
