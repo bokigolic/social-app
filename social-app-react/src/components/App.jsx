@@ -10,6 +10,7 @@ import PostList from "./PostList";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import PageProfile from "./PageProfile";
 import PageMyProfile from "./PageMyProfile";
+import { Link } from "react-router-dom";
 
 
 const App = () => {
@@ -30,7 +31,8 @@ const App = () => {
     <div className="wrapper">
       <header>
         <div className="inner">
-          <div className="logo">Bokibook</div>
+
+          <Link to={"/"}><div className="logo">Bokibook</div></Link>
           <div className="flex-1"></div>
           {
             myUserData ? (

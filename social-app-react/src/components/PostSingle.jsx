@@ -49,7 +49,7 @@ const PostSingle = (props) => {
             <Avatar src={user.avatar_src} />
           </Link>
           <div className="next-to-avatar">
-            <b>{user.username}</b><br />
+            <b> <Link to={routeUserProfilePage}>{user.username}</Link></b><br />
             <div className="date-time">{timestampToDateDIsplay(item.timestamp)}</div>
           </div>
         </div>
