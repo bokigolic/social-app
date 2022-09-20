@@ -255,7 +255,7 @@
     {
       "post_id": 26,
       "user_id": 1,
-      "like": true,
+      "like": false,
       "id": 7
     },
     {

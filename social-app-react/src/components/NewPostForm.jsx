@@ -118,7 +118,11 @@ const NewPostForm = (props) => {
               <h5>Choose image from your device</h5>
               <div className="image-preview-gallery">
                 <div className="image-preview">
-                  <img src={imageBlob} />
+                  {
+                    imageBlob && (
+                      <img src={imageBlob} />
+                    )
+                  }
                 </div>
                 <label className="file-input-custom-design">
                   <span className="icon"><i className="fa fa-plus" aria-hidden="true"></i></span>

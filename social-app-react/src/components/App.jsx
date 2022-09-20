@@ -37,8 +37,8 @@ const App = () => {
           {
             myUserData ? (
               <>
-                <Avatar src={myUserData.avatar_src} />
-                <div><b>{myUserData.username}</b></div>
+                <Link to={"/myprofile"}><Avatar src={myUserData.avatar_src} /></Link>
+                <div className="nickname"><Link to={"/myprofile"}><b>{myUserData.username}</b></Link></div>
                 <div>
                   <button onClick={handleLogout}><i className="fa fa-sign-out" aria-hidden="true"></i> Log Out</button>
                 </div>
