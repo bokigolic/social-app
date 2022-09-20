@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { ajax } from "../utils/ajax-adapter";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const preset = {
     username: "",
@@ -33,7 +35,9 @@ const LoginForm = () => {
         dispatch({
           type: 'LOGIN_FETCHED',
           payload: response
-        })
+        });
+        // nakon logovanja redirekcija na myprofile stranu
+        navigate("/myprofile");
       })
 
   };

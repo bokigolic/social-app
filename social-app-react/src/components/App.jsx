@@ -7,17 +7,24 @@ import BtnCircle from "./BtnCircle";
 import LoginForm from "./LoginForm";
 import NewPostForm from "./NewPostForm";
 import PostList from "./PostList";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import PageProfile from "./PageProfile";
+import PageMyProfile from "./PageMyProfile";
 
 
 const App = () => {
   const dispatch = useDispatch();
   const myUserData = useSelector(state => state.myUserData);
 
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     dispatch({
       type: 'LOGOUT'
-    })
-  }
+    });
+    // nakon logout redorektujem ona pocetnu stranu
+    navigate("/");
+  };
 
   return (
     <div className="wrapper">
@@ -42,7 +49,12 @@ const App = () => {
       </header>
 
       <div className="inner">
-        <PostList />
+        <Routes>
+          <Route path="/" element={<PostList />} />
+          <Route path="/myprofile" element={<PageMyProfile />} />
+          <Route path="/user/:id" element={<PageProfile />} />
+          <Route path="*" element={<div>Route not found.</div>} />
+        </Routes>
       </div>
 
 

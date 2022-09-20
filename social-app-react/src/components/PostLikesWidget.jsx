@@ -81,7 +81,6 @@ const PostLikesWidget = (props) => {
     if (myUserData) {
       // if logged in
       refresh();
-      refreshLikes();
     }
   }, [myUserData]);
 

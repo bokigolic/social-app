@@ -8,10 +8,13 @@ import BtnCircle from "./BtnCircle";
 import { ajax } from "../utils/ajax-adapter";
 import { useSelector } from "react-redux";
 import PostLikesWidget from "./PostLikesWidget";
+import { Link } from "react-router-dom";
 
 const PostSingle = (props) => {
   const item = props.item;
   const myUserData = useSelector(state => state.myUserData);
+
+  const routeUserProfilePage = "/user/" + item.user_id;
 
 
   const [user, setUser] = useState({
@@ -42,7 +45,9 @@ const PostSingle = (props) => {
       <header>
 
         <div className="avatar-group">
-          <Avatar src={user.avatar_src} />
+          <Link to={routeUserProfilePage}>
+            <Avatar src={user.avatar_src} />
+          </Link>
           <div className="next-to-avatar">
             <b>{user.username}</b><br />
             <div className="date-time">{timestampToDateDIsplay(item.timestamp)}</div>
