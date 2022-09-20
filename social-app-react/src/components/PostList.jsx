@@ -6,19 +6,37 @@ import NewPostForm from "./NewPostForm";
 import PostSingle from "./PostSingle";
 
 
-const PostList = () => {
+const PostList = (props) => {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts);
   const myUserData = useSelector(state => state.myUserData);
 
   const refresh = () => {
-    ajax.getAllPosts()
-      .then((response) => {
-        dispatch({
-          type: 'POSTS_FETCHED',
-          payload: response
-        });
-      })
+    if (props.user_id) {
+      // user's posts
+      {
+        // all posts
+        ajax.getPostsByUserId(props.user_id)
+          .then((response) => {
+            dispatch({
+              type: 'POSTS_FETCHED',
+              payload: response
+            });
+          })
+
+      }
+
+    } else {
+      // all posts
+      ajax.getAllPosts()
+        .then((response) => {
+          dispatch({
+            type: 'POSTS_FETCHED',
+            payload: response
+          });
+        })
+
+    }
 
   };
 
@@ -29,7 +47,12 @@ const PostList = () => {
 
   return (
     <div>
-      <h1>Posts</h1>
+      
+      {
+        props.user_id ? (<h1>Users's posts</h1>):(<h1>Posts</h1>)
+      }
+       
+      
 
       {
         myUserData !== null && (

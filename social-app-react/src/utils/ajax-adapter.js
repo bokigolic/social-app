@@ -36,6 +36,16 @@ ajax.getAllPosts = async () => {
   return posts;
 };
 
+ajax.getPostsByUserId = async (user_id) => {
+  const url = apiUrlPrefix + '/posts?user_id=' + user_id;
+  const response = await axios.get(url);
+  let posts = [];
+  if (response && response.data && Array.isArray(response.data)) {
+    posts = response.data;
+  }
+  return posts;
+};
+
 ajax.createPost = async (sumbitData) => {
   const url = apiUrlPrefix + '/posts';
   const data = {

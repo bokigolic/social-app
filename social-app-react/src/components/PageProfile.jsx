@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Avatar from "./Avatar";
-import { timestampToDateDIsplay } from "../utils/date-utils";
+import PostList from "./PostList";
 
 
 const PageProfile = () => {
@@ -44,9 +44,10 @@ const PageProfile = () => {
         </div>
 
 
-
       </div>
-      <h1>User profile (id: {id})</h1>
+      <p>User profile (id: {id})</p>
+
+      <PostList user_id={id} />
     </>
 
   )
