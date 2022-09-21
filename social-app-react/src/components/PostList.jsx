@@ -47,12 +47,12 @@ const PostList = (props) => {
 
   return (
     <div>
-      
+
       {
-        props.user_id ? (<h1>Users's posts</h1>):(<h1>Posts</h1>)
+        props.user_id ? (<h1>Users's posts</h1>) : (<h1>Posts</h1>)
       }
-       
-      
+
+
 
       {
         myUserData !== null && (
@@ -63,9 +63,9 @@ const PostList = (props) => {
 
       <div className="post-list">
         {
-          posts.map((item) => {
+          posts.map((post) => {
             return (
-              <PostSingle key={item.id} item={item} />
+              <PostSingle key={post.id} post={post} />
             )
           })
         }

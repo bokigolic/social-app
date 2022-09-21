@@ -12,10 +12,10 @@ import { Link } from "react-router-dom";
 import PostComments from "./PostComments";
 
 const PostSingle = (props) => {
-  const item = props.item;
+  const post = props.post;
   const myUserData = useSelector(state => state.myUserData);
 
-  const routeUserProfilePage = "/user/" + item.user_id;
+  const routeUserProfilePage = "/user/" + post.user_id;
 
 
   const [user, setUser] = useState({
@@ -26,7 +26,7 @@ const PostSingle = (props) => {
   });
 
   useEffect(() => {
-    const url = 'http://localhost:3033/users/' + item.user_id; // url za api da dobijem jednog korisnika. na primer http://localhost:3033/users/3
+    const url = 'http://localhost:3033/users/' + post.user_id; // url za api da dobijem jednog korisnika. na primer http://localhost:3033/users/3
     axios.get(url)
       .then((response) => {
         // ovo ce biti pozvano kada se obavio axios.get()
@@ -51,15 +51,15 @@ const PostSingle = (props) => {
           </Link>
           <div className="next-to-avatar">
             <b> <Link to={routeUserProfilePage}>{user.username}</Link></b><br />
-            <div className="date-time">{timestampToDateDIsplay(item.timestamp)}</div>
+            <div className="date-time">{timestampToDateDIsplay(post.timestamp)}</div>
           </div>
         </div>
-        <p>{item.text}</p>
+        <p>{post.text}</p>
       </header>
       <div className="post-body">
         {
-          item.image_src && item.image_src !== "" && (
-            <img src={item.image_src} />
+          post.image_src && post.image_src !== "" && (
+            <img src={post.image_src} />
           )
         }
       </div>
@@ -68,11 +68,11 @@ const PostSingle = (props) => {
 
         <Bar
           start={
-            <PostLikesWidget post_id={item.id} />
+            <PostLikesWidget post_id={post.id} />
           }
         />
 
-        <PostComments post_id={item.id} />
+        <PostComments post_id={post.id} />
 
 
 
