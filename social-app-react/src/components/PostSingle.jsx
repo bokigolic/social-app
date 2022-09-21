@@ -9,6 +9,7 @@ import { ajax } from "../utils/ajax-adapter";
 import { useSelector } from "react-redux";
 import PostLikesWidget from "./PostLikesWidget";
 import { Link } from "react-router-dom";
+import PostComments from "./PostComments";
 
 const PostSingle = (props) => {
   const item = props.item;
@@ -70,6 +71,8 @@ const PostSingle = (props) => {
             <PostLikesWidget post_id={item.id} />
           }
         />
+
+        <PostComments post_id={item.id} />
 
 
 

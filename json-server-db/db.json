@@ -264,5 +264,19 @@
       "like": false,
       "id": 8
     }
+  ],
+  "comments":[
+    {
+      "id": 1,
+      "post_id": 29,
+      "user_id": 1,
+      "text": "This is first comment"
+    },
+    {
+      "id": 2,
+      "post_id": 29,
+      "user_id": 2,
+      "text": "This is second comment"
+    }
   ]
 }

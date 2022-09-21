@@ -99,3 +99,13 @@ ajax.getAllPostLikes = async (post_id) => {
   }
   return likes;
 };
+
+ajax.getCommentsByPostId = async (post_id) => {
+  const url = apiUrlPrefix + '/comments?post_id=' + post_id;
+  const response = await axios.get(url);
+  let comments = [];
+  if (response && response.data && Array.isArray(response.data)) {
+    comments = response.data;
+  }
+  return comments;
+};
