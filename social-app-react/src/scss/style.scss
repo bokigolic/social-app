@@ -320,3 +320,26 @@ a {
   }
 
 }
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+
+  padding: 0.5rem;
+
+  * {
+    margin-right: 0.3rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+  }
+}

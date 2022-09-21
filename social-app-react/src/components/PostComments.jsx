@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { ajax } from "../utils/ajax-adapter";
+import CommentSingle from "./CommentSingle";
 
 const PostComments = (props) => {
 
@@ -21,10 +22,9 @@ const PostComments = (props) => {
 
       {
         comments.map((comment) => {
-          return (<div className="comment">
-            {comment.user_id}
-            {comment.text}
-          </div>)
+          return (
+            <CommentSingle key={comment.id} comment={comment} />
+          )
         })
       }
 
