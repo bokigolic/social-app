@@ -274,6 +274,7 @@ a {
 
   &.disabled {
     cursor: default;
+    cursor: not-allowed;
     opacity: 0.5;
   }
 }
@@ -302,6 +303,24 @@ a {
   flex-wrap: nowrap;
 
   margin: 0.5rem 0;
+
+  .bar-start,
+  .bar-center,
+  .bar-end {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    >* {
+      margin-right: 0.5rem;
+    }
+
+    >*:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
 .cover {

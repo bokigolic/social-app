@@ -11,6 +11,7 @@ import PostLikesWidget from "./PostLikesWidget";
 import { Link } from "react-router-dom";
 import PostComments from "./PostComments";
 import { useUser } from "../hooks/use-user";
+import PostReactionWidget from "./PostReactionWidget";
 
 const PostSingle = (props) => {
   const post = props.post;
@@ -24,6 +25,7 @@ const PostSingle = (props) => {
   } = useUser(user_id);
 
   const routeUserProfilePage = "/user/" + post.user_id;
+
 
   return (
     <div className="post-single">
@@ -48,20 +50,16 @@ const PostSingle = (props) => {
         }
       </div>
       <footer>
-
-
         <Bar
           start={
-            <PostLikesWidget post_id={post.id} />
+            <>
+              <PostReactionWidget post_id={post.id} />
+              <PostLikesWidget post_id={post.id} />
+            </>
           }
         />
-
         <PostComments post_id={post.id} />
-
-
-
       </footer>
-
     </div>
   );
 };
