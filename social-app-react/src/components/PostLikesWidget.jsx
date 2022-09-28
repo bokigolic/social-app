@@ -65,7 +65,7 @@ const PostLikesWidget = (props) => {
   };
 
   const refreshLikes = () => {
-    ajax.getAllPostLikes(post_id)
+    ajax.getLikesByPostId(post_id)
       .then((response) => {
         setLikes(response);
       })

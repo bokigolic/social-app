@@ -89,15 +89,25 @@ ajax.checkUserLikePost = async (user_id, post_id) => {
   return likes;
 };
 
-ajax.getAllPostLikes = async (post_id) => {
+ajax.getLikesByPostId = async (post_id) => {
   const url = apiUrlPrefix + '/likes?post_id=' + post_id;
   const response = await axios.get(url);
-  // console.log('response from getAllPostLikes', response);
+  // console.log('response from getLikesByPostId', response);
   let likes = [];
   if (response && response.data && Array.isArray(response.data)) {
     likes = response.data;
   }
   return likes;
+};
+
+ajax.getReactionsByPostId = async (post_id) => {
+  const url = apiUrlPrefix + '/reactions?post_id=' + post_id;
+  const response = await axios.get(url);
+  let reactions = [];
+  if (response && response.data && Array.isArray(response.data)) {
+    reactions = response.data;
+  }
+  return reactions;
 };
 
 ajax.getCommentsByPostId = async (post_id) => {

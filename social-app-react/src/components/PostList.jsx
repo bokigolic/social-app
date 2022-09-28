@@ -40,10 +40,10 @@ const PostList = (props) => {
 
   };
 
-
   useEffect(() => {
     refresh();
   }, []);
+
 
   return (
     <div>
