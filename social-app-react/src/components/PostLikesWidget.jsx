@@ -106,7 +106,7 @@ const PostLikesWidget = (props) => {
 
       } else {
         // CREATE LIKE
-        ajax.likePost(submitData)
+        ajax.createLikePost(submitData)
           .then((response) => {
             console.log("Like uspesno dodat na backend");
             refresh();

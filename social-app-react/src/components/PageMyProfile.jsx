@@ -7,7 +7,10 @@ import PostList from "./PostList";
 const PageMyProfile = () => {
   const myUserData = useSelector(state => state.myUserData);
   const user = myUserData;
-  const user_id = myUserData.id;
+  let user_id = null;
+  if (myUserData) {
+    user_id = myUserData.id;
+  }
 
   return (
     <>

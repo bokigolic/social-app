@@ -56,7 +56,7 @@ ajax.createPost = async (sumbitData) => {
   return true; // iako uspe i ako ne uspe
 };
 
-ajax.likePost = async (submitData) => {
+ajax.createLikePost = async (submitData) => {
   // CREATE LIKE
   const url = apiUrlPrefix + '/likes';
   const data = {
@@ -98,6 +98,36 @@ ajax.getLikesByPostId = async (post_id) => {
     likes = response.data;
   }
   return likes;
+};
+
+ajax.createReactionToPost = async (submitData) => {
+  // CREATE REACTION
+  const url = apiUrlPrefix + '/reactions';
+  const data = {
+    ...submitData
+  };
+  const response = await axios.post(url, data);
+  return true;
+};
+
+ajax.updateReactionToPost = async (submitData, id) => {
+  // UPDATE REACTION 
+  const url = apiUrlPrefix + '/reactions/' + id;
+  const data = {
+    ...submitData
+  };
+  const response = await axios.patch(url, data);
+  return true;
+};
+
+ajax.checkUserReactionToPost = async (user_id, post_id) => {
+  const url = apiUrlPrefix + '/reactions?user_id=' + user_id + '&post_id=' + post_id;
+  const response = await axios.get(url);
+  let reactions = [];
+  if (response && response.data && Array.isArray(response.data)) {
+    reactions = response.data;
+  }
+  return reactions;
 };
 
 ajax.getReactionsByPostId = async (post_id) => {

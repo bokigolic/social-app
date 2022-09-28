@@ -301,8 +301,20 @@
     {
       "post_id": 31,
       "user_id": 1,
-      "reaction": ":)",
+      "reaction": "LOVE",
       "id": 1
+    },
+    {
+      "post_id": 27,
+      "user_id": 1,
+      "reaction": "HAHA",
+      "id": 2
+    },
+    {
+      "post_id": 30,
+      "user_id": 1,
+      "reaction": "LOVE",
+      "id": 3
     }
   ],
   "comments": [
