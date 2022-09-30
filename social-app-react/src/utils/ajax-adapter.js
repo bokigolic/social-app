@@ -1,7 +1,9 @@
 import axios from "axios";
+import { makeUrlPrefix } from "./api-utils";
 
 
-const apiUrlPrefix = 'http://localhost:3033';
+// const apiUrlPrefix = 'http://localhost:3033';
+const apiUrlPrefix = makeUrlPrefix();
 
 
 export const ajax = {};
