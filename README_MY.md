@@ -29,11 +29,20 @@ commit -am "make it better"
 git push heroku main
 
 // PRORADILO IZ PRVE!
-Adresa za proveru https://social-json-backend.herokuapp.com/
+Adresa za proveru https://social-json-backend.herokuapp.com
 
+## Kad se izmeni verzija da se nova verzija pojavi na heroku
 
+git status
+git add .
+git commit -m "new version"
+git push
+git status
 
+git add .
+commit -am "make it better"
+git push heroku main
 
-
-
-
+// PRORDAIO I OVAJ UPDATE IZ PRVE!
+// Takodje je proradio na hotgatoru frontend povezan sa heroku backendom
+Adresa za proveru http://socialapp.bojangolic.com/
