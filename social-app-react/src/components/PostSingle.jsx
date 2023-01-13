@@ -28,7 +28,7 @@ const PostSingle = (props) => {
 
 
   return (
-    <div className="post-single">
+    <div className="post-single" data-post-id={post.id}>
       <header>
 
         <div className="avatar-group">

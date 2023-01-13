@@ -151,3 +151,13 @@ ajax.getCommentsByPostId = async (post_id) => {
   }
   return comments;
 };
+
+ajax.createComment = async (sumbitData) => {
+  const url = apiUrlPrefix + '/comments';
+  const data = {
+    ...sumbitData,
+    timestamp: Date.now() // vreme inace treba da se doda na backendu ali sad laziramo
+  };
+  const response = await axios.post(url, data);
+  return true; // iako uspe i ako ne uspe
+};

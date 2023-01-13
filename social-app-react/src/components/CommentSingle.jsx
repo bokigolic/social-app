@@ -14,7 +14,7 @@ const CommentSingle = (props) => {
   const routeUserProfilePage = "/user/" + user_id;
 
   return (
-    <div className="comment">
+    <div className="comment" data-comment-id={comment.id}>
       <Link to={routeUserProfilePage}>
         <Avatar src={user.avatar_src} />
       </Link>
