@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import PostComments from "./PostComments";
 import { useUser } from "../hooks/use-user";
 import PostReactionWidget from "./PostReactionWidget";
+import DotsMenu from "./DotsMenu";
 
 const PostSingle = (props) => {
   const post = props.post;
@@ -24,11 +25,13 @@ const PostSingle = (props) => {
     setUser
   } = useUser(user_id);
 
+
   const routeUserProfilePage = "/user/" + post.user_id;
 
 
   return (
     <div className="post-single" data-post-id={post.id}>
+      <DotsMenu />
       <header>
 
         <div className="avatar-group">
