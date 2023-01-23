@@ -16,6 +16,7 @@ const DotsMenu = (props) => {
     <div className="dots-menu">
       <div className="circle" onClick={toggleOpened} >
         <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
+      </div>
         {
           opened && (
             <div className="popup-menu">
@@ -23,7 +24,6 @@ const DotsMenu = (props) => {
             </div>
           )
         }
-      </div>
     </div>
   )
 }
