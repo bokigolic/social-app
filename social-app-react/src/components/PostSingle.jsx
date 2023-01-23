@@ -18,9 +18,13 @@ const PostSingle = (props) => {
   const post = props.post;
   const refresh = props.refresh;
   const myUserData = useSelector(state => state.myUserData);
+  let myUserId;
+  if (myUserData && myUserData.id) {
+    myUserId = myUserData.id; // id ulogovanog korisnika
+  }
 
-  const user_id = post.user_id;
-  const post_id = post.id;
+  const user_id = post.user_id; // id usera autora posta
+  const post_id = post.id; // is posta
 
   const {
     user,
@@ -32,10 +36,23 @@ const PostSingle = (props) => {
 
   const _handleDeletePost = (post_id) => {
     console.log("delete post", post_id);
-    ajax.deletePost(post_id)
-      .then((response) => {
-        refresh();
-      })
+    if (!myUserId) {
+      //not logged in
+      window.alert("You must be logged in")
+    } else {
+      if (myUserId === user_id) {
+        // my post
+        if (window.confirm("Are you sure you want delete your post? ")) {
+          ajax.deletePost(post_id)
+            .then((response) => {
+              refresh();
+            })
+        }
+      } else {
+        // somebody else post
+        window.alert("You can only delete your own post")
+      }
+    }
   }
 
   return (
