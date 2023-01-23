@@ -16,6 +16,7 @@ import DotsMenu from "./DotsMenu";
 
 const PostSingle = (props) => {
   const post = props.post;
+  const refresh = props.refresh;
   const myUserData = useSelector(state => state.myUserData);
 
   const user_id = post.user_id;
@@ -30,7 +31,11 @@ const PostSingle = (props) => {
   const routeUserProfilePage = "/user/" + post.user_id;
 
   const _handleDeletePost = (post_id) => {
-    console.log("delete post", post_id)
+    console.log("delete post", post_id);
+    ajax.deletePost(post_id)
+      .then((response) => {
+        refresh();
+      })
   }
 
   return (

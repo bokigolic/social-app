@@ -58,6 +58,12 @@ ajax.createPost = async (sumbitData) => {
   return true; // iako uspe i ako ne uspe
 };
 
+ajax.deletePost = async (id) => {
+  const url = apiUrlPrefix + '/posts/'+ id;
+  const response = await axios.delete(url);
+  return true;
+}
+
 ajax.createLikePost = async (submitData) => {
   // CREATE LIKE
   const url = apiUrlPrefix + '/likes';
