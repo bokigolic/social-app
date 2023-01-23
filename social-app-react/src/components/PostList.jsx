@@ -65,7 +65,7 @@ const PostList = (props) => {
         {
           posts.map((post) => {
             return (
-              <PostSingle key={post.id} post={post} />
+              <PostSingle key={post.id} post={post} refresh={refresh} />
             )
           })
         }
