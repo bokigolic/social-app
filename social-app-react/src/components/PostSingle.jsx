@@ -19,6 +19,7 @@ const PostSingle = (props) => {
   const myUserData = useSelector(state => state.myUserData);
 
   const user_id = post.user_id;
+  const post_id = post.id;
 
   const {
     user,
@@ -28,10 +29,22 @@ const PostSingle = (props) => {
 
   const routeUserProfilePage = "/user/" + post.user_id;
 
+  const _handleDeletePost = (post_id) => {
+    console.log("delete post", post_id)
+  }
 
   return (
     <div className="post-single" data-post-id={post.id}>
-      <DotsMenu />
+      <DotsMenu>
+        <div onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation(); // znaci da se ovaj klik tu zavrsava i ne racuna se da smo u isto vreme kliknili na stranicu i ostale divove u kojem se nalazimo.
+          _handleDeletePost(post_id)
+        }
+
+        }><i className="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Delete&nbsp;post</div>
+
+      </DotsMenu>
       <header>
 
         <div className="avatar-group">
