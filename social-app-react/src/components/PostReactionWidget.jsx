@@ -32,7 +32,7 @@ const PostReactionWidget = (props) => {
     const user_id = myUserData.id;
     ajax.checkUserReactionToPost(user_id, post_id)
       .then((response) => {
-        console.log('++++++ response.length', response.length);
+        // console.log('++++++ response.length', response.length);
         if (response.length > 0) {
           // ALREADY REACTED
           const reactionItem = response[0];

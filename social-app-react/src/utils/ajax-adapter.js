@@ -27,6 +27,17 @@ ajax.login = async (sumbitData) => {
   return myUserData;
 };
 
+ajax.getUserById = async (id) => {
+  const url = apiUrlPrefix + '/users/' + id; // url za api da dobijem jednog korisnika. na primer http://localhost:3033/users/3
+  const response = await axios.get(url);
+  let user = null;
+  // console.log('ajax user single response', response);
+  if (response && response.data && response.data.username) {
+    user = response.data;
+  }
+  return user;
+};
+
 ajax.getAllPosts = async () => {
   const url = apiUrlPrefix + '/posts';
   const response = await axios.get(url);
