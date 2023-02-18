@@ -8,7 +8,8 @@ export const makeUrlPrefix = () => {
     url_prefix = 'http://localhost:3001';
     // example 'http://localhost:3001'
     */
-    url_prefix = 'http://localhost:3033'; // LOCAL JSON SERVER
+    // url_prefix = 'http://localhost:3033'; // LOCAL JSON SERVER
+    url_prefix = 'http://localhost/json-server-php'; // LOCAL JSON SERVER PHP
   } else {
     /*
     // CASE react app build is hosted inside public folder on real backend

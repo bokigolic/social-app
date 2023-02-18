@@ -1,0 +1,22 @@
+#
+# Apache/PHP/json-server-php.php settings:
+#
+
+RewriteEngine On
+
+# Redirecting only, when file doesn't exists.
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Rules for matching singleword
+RewriteRule ^([a-zA-Z0-9\-]+?)/?$ json-server-php.php?collection=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Rules for matching singleword/number
+RewriteRule ^([a-zA-Z0-9\-]+?)/([a-zA-Z0-9]+?)/?$ json-server-php.php?collection=$1&id=$2 [L,QSA]
+
+# Default file is not index.html or index.php but json-server-php.php
+# To disable that,
+# comment the following:
+DirectoryIndex json-server-php.php
