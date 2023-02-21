@@ -1,3 +1,8 @@
+# Novi backend 2023 februar 18.
+- Od 2023 februar 18. ne koristimo json-server pa se folder json-server-db moze ignorisati.
+- takodje se ne koristi heroku jer je heroku prestao da hostuje json-server.
+- Novi backend se sada nalazi na hostingu u folderu https://socialapp.bojangolic.com/api
+a lokalna kopija tih fajlova od backenda se nalazi ovde u folderu json-server-php-backend.
 
 
 # HOW TO START json-server backend

@@ -1,4 +1,4 @@
-# README json-server-php v0.3.4
+# README json-server-php v0.3.9
 
 ## INSPIRATION
 
@@ -72,6 +72,7 @@ DirectoryIndex json-server-php.php
 
 ### Every method
 - When "collection" url query variable is provided but colection with that name not exist in database, than return 404 Not Found.
+- When there is no json or urlencoded variables in request, same result as there is empty json object.
 
 ### GET method
 - When no other url query variable other than "collection" is provided than return Array with all items from collection. Array can be empty.
@@ -115,9 +116,11 @@ DirectoryIndex json-server-php.php
 - When "collection" url query variable is not provided, than return HTML.
 - Response content type is always JSON except when no collection is provided and returning HTML.
 
+## chamgelog
+- Fixed bug in .htaccess when id is not integer
+- Allowed characters in .htaccess is now: a-z A-Z 0-9 _ -
+
+
 ## TODO
-++ TODO if no json create empty object like there is empty json object...
-++ TODO BUG kada id nije integer Object not found se pojavljuje od htaccess-a
-- What characters are allowed in collection names?
 - TODO: Singular routes???
-- ako je poslat urlencoded sa praznim key value on u entity upise prazan key i prazan value: "": "".
+- ako je poslat urlencoded sa praznim key value on u entity upise prazan key i prazan value: "": "" kao u json-server.
