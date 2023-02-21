@@ -83,7 +83,7 @@ const NewPostForm = (props) => {
   return (
     <div className="new-post-form">
       <form>
-        <h4>Write new post</h4>
+        
         <div className="avatar-textarea-group">
           <Avatar src={myUserData.avatar_src} />
           <textarea

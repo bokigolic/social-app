@@ -11,7 +11,7 @@ html {
 body {
   margin: 0px;
   padding: 0px;
-  background-color: rgb(240, 240, 240);
+  background-color: #f0f2f5;
   padding-bottom: 4rem;
 }
 
@@ -35,12 +35,31 @@ a {
 .inner {
   max-width: 560px;
   margin: 0px auto;
-  padding: 1rem;
+  padding: 5px;
 }
 
 .wrapper {
+
+  .fa-stack {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    vertical-align: middle;
+  }
+  
+  .fa-stack .fa-circle {
+    color: #4e7bf9; 
+  }
+  
+  .fa-stack .fa-facebook {
+    color: #fff;
+  }
   >header {
-    background-color: rgb(167, 193, 241);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); 
+    border-bottom: 1px solid #ccc;
 
     .inner {
       display: flex;
@@ -48,9 +67,11 @@ a {
       flex-wrap: nowrap;
       justify-content: space-between;
       align-items: center;
+      
 
       div {
         margin-right: 0.5rem;
+      
 
         &:last-child {
           margin-right: 0;
@@ -123,6 +144,10 @@ a {
 
 .new-post-form {
   padding-bottom: 1rem;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 13px;
+//background-color: #f0f2f5;
 
   .avatar-textarea-group {
     display: flex;
@@ -139,7 +164,7 @@ a {
       padding: 0.4rem 0.6rem;
       margin-left: 0.5rem;
       border-radius: 20px;
-      border-bottom-right-radius: 3px;
+      
     }
 
   }

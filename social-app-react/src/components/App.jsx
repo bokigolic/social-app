@@ -32,7 +32,11 @@ const App = () => {
       <header>
         <div className="inner">
 
-          <Link to={"/"}><div className="logo">Bokibook</div></Link>
+
+          <Link to={"/"}><div className="logo"><span class="fa-stack fa-lg">
+            <span class="fa fa-circle fa-stack-2x"></span>
+            <span class="fa fa-facebook fa-stack-1x fa-inverse"></span>
+          </span> </div></Link>
           <div className="flex-1"></div>
           {
             myUserData ? (
