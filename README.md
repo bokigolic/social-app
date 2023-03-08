@@ -1,6 +1,7 @@
 # Project Name:  social-media-app, Facebook Clone
 
 
+
 This Facebook Clone application has been built with React.js for the frontend and PHP for the backend to 
 enable deployment. It offers a variety of social media features, including user registration and login, 
 the ability to post updates and add images, as well as comment on and like/dislike posts, making it a 
